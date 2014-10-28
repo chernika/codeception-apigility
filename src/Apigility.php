@@ -7,6 +7,7 @@ use Zend\EventManager\StaticEventManager;
 use Zend\Mvc\Application;
 use Zend\View\Helper\Placeholder;
 use Zend\Version\Version;
+use Codeception\Module\Connector as ApigilityConnector;
 
 /**
  * This module allows you to run tests inside Zend Framework 2.
@@ -32,7 +33,7 @@ use Zend\Version\Version;
  *
  */
 
-class ZF2 extends \Codeception\Lib\Framework
+class Apigility extends \Codeception\Lib\Framework
 {
     protected $config = array(
         'config' => 'tests/application.config.php',
@@ -59,7 +60,7 @@ class ZF2 extends \Codeception\Lib\Framework
     public function _initialize() {
         require \Codeception\Configuration::projectDir().'init_autoloader.php';
 
-        $this->client = new \Codeception\Lib\Connector\ZF2();
+        $this->client = new ApigilityConnector();
     }
 
     public function _before(\Codeception\TestCase $test) {
