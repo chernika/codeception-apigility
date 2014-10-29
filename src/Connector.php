@@ -49,7 +49,6 @@ class Connector extends ZF2
             $zendRequest->setQuery(new Parameters($query));
         }
 
-        //codecept_debug($method);
         if ($method == HttpRequest::METHOD_POST) {
             $post = $request->getParameters();
             $zendRequest->setPost(new Parameters($post));
