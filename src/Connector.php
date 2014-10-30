@@ -67,9 +67,7 @@ class Connector extends ZF2
             throw $exception;
         }
 
-        //codecept_debug($zendResponse);
         $zendResponse = $this->application->getResponse();
-        //codecept_debug($zendResponse);
         $response = new Response(
             $zendResponse->getBody(),
             $zendResponse->getStatusCode(),
