@@ -54,6 +54,10 @@ class Connector extends ZF2
             $zendRequest->setPost(new Parameters($post));
         } elseif ($method == HttpRequest::METHOD_PUT) {
             $zendRequest->setContent($request->getContent());
+        } elseif ($method == HttpRequest::METHOD_PATCH) {
+            $post = $request->getParameters();
+            $zendHeaders->addHeaders(array('Content-Type' => 'application/json'));
+            $zendRequest->setContent(json_encode($post));
         }
 
         $zendRequest->setMethod($method);
