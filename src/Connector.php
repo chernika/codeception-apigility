@@ -62,6 +62,13 @@ class Connector extends ZF2
 
         $zendRequest->setMethod($method);
         $zendRequest->setUri($uri);
+
+        $em = \Codeception\Module\Doctrine2::$em;
+        $sm = $this->application->getServiceManager();
+        $sm->setAllowOverride(true)
+            ->setService('Doctrine\ORM\EntityManager', $em)
+            ->setAllowOverride(false);
+
         $this->application->run();
 
         $this->zendRequest = $zendRequest;
