@@ -2,7 +2,6 @@
 
 namespace Codeception\Module;
 
-use Symfony\Component\BrowserKit\Client;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\BrowserKit\Response;
 use Zend\Http\Request as HttpRequest;
@@ -53,7 +52,9 @@ class Connector extends ZF2
             $post = $request->getParameters();
             $zendRequest->setPost(new Parameters($post));
         } elseif ($method == HttpRequest::METHOD_PUT) {
-            $zendRequest->setContent($request->getContent());
+            $post = $request->getParameters();
+            $zendHeaders->addHeaders(array('Content-Type' => 'application/json'));
+            $zendRequest->setContent(json_encode($post));
         } elseif ($method == HttpRequest::METHOD_PATCH) {
             $post = $request->getParameters();
             $zendHeaders->addHeaders(array('Content-Type' => 'application/json'));
