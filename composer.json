@@ -1,12 +1,6 @@
 {
-    "name": "artmnv/codeception-apigility",
+    "name": "chernika/codeception-apigility",
     "description": "Apigility testing module for Codeception",
-    "authors": [
-        {
-            "name": "Anton Artamonov",
-            "email": "ant.artamonov@gmail.com"
-        }
-    ],
     "require": {
 
     },
